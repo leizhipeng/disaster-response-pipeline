@@ -17,7 +17,28 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
-    pass
+    """
+    Convert category values to just numbers 0 or 1; drop the original categories column from `df`.
+    Remove duplicates.
+    :param df: The merged dataframe.
+    :return: A cleaned dataframe.
+    """
+    categories = df["categories"].str.split(";", expand=True)
+    row = categories.iloc[0]
+    category_colnames = [category_name.split('-')[0] for category_name in row.values]
+    categories.columns = category_colnames
+    for column in categories:
+        # set each value to be the last character of the string
+        categories[column] = categories[column].astype(str).str[-1:]
+
+        # convert column from string to numeric
+        categories[column] = categories[column].astype(int)
+
+    df = df.drop(["categories"], axis=1)
+    df = pd.concat([df, categories], join='inner', axis=1)
+    df = df.drop_duplicates()
+
+    return df
 
 
 def save_data(df, database_filename):
