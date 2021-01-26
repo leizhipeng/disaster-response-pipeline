@@ -30,22 +30,32 @@ def clean_data(df):
     for column in categories:
         # set each value to be the last character of the string
         categories[column] = categories[column].astype(str).str[-1:]
-
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
-
     df = df.drop(["categories"], axis=1)
     df = pd.concat([df, categories], join='inner', axis=1)
     df = df.drop_duplicates()
 
     return df
 
-
 def save_data(df, database_filename):
-    pass  
+    """
+    Save the clean dataset into an sqlite database.
+    :param df: The clean dataset.
+    :param database_filename: The file name of the database to be saved.
+    """
 
+    engine = create_engine('sqlite:///'+ database_filename)
+    table_name = database_filename.replace(".db","") + "_table"
+    df.to_sql(table_name, engine, index=False, if_exists='replace')
 
 def main():
+    """
+    Main function which will conduct the data processing functions.
+    First, load datasets of messages and categories.
+    Second, clean the dataset.
+    Third, save the dataframe into SQL database.
+    """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
