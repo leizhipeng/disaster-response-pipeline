@@ -25,7 +25,7 @@ def load_data(database_filepath):
     engine = create_engine('sqlite:///' + database_filepath)
     table_name = os.path.basename(database_filepath).replace(".db","") + "_table"
     df = pd.read_sql_table(table_name,engine)
-    df = df.drop(['child_alone'], axis=1)
+
     X = df["message"]
     Y = df[df.columns[4:]]
     category_names = Y.columns

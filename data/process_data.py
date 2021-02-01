@@ -35,6 +35,11 @@ def clean_data(df):
     df = df.drop(["categories"], axis=1)
     df = pd.concat([df, categories], join='inner', axis=1)
     df = df.drop_duplicates()
+    # Remove the column of "child alone" since it has all zeros only
+    df = df.drop(['child_alone'], axis=1)
+    # The column of "related" has 0, 1, and 2 values. It could be error.
+    # Given value 2 in the related field are negligible. Replacing 2 with 1 to consider it a valid response.
+    df['related']=df['related'].map(lambda x: 1 if x == 2 else x)
 
     return df
 
