@@ -43,4 +43,6 @@ A machine learning pipeline is built to process the message texts and predict th
 
 <a name="flask"></a>
 ## Flask Web App
-This Project
+We set up a Flask web app for visualizing data, handling user query, and displaying results.
+
+![query figure](https://github.com/leizhipeng/disaster-response-pipeline/blob/main/figures/inquiry.png?raw=true)
