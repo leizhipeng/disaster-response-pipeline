@@ -5,14 +5,33 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Instructions](#instructions)
-3. [Dataset](#dataset)
-4. [ML Pipeline](#pipeline)
-5. [Flask Web App](#flask)
+2. [File Structure](#filestructure)
+3. [Instructions](#instructions)
+4. [Dataset](#dataset)
+5. [ML Pipeline](#pipeline)
+6. [Flask Web App](#flask)
 
 <a name="instroduction"></a>
 ## Introduction
 This Project aims to analyze disaster data, containing real messages that were sent during disaster events. We create a machine learning pipeline to categorize these disaster events so that the messages can be sent to an appropriate disaster relief agency.
+
+
+<a name="filestructure"></a>
+## File Structure:
+    app
+    | - template
+    | |- master.html                # main page of web app
+    | |- go.html                    # classification result page of web app
+    |- run.py                       # Flask file that runs app
+    data
+    |- disaster_categories.csv      # data to process
+    |- disaster_messages.csv        # data to process
+    |- process_data.py              # code for processing data with ETL pipeline
+    |- InsertDatabaseName.db        # database to save clean data to
+    models
+    |- train_classifier.py          # code for obtaining a message classifier with ML pipeline
+    |- classifier.pkl               # saved model
+    README.md
 
 <a name="instructions"></a>
 ## Instructions:
