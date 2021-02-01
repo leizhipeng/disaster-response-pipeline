@@ -8,7 +8,7 @@
 2. [Instructions](#instructions)
 3. [Dataset](#dataset)
 4. [ML Pipeline](#pipeline)
-5. [Message Classifier](#classifier)
+5. [Flask Web App](#flask)
 
 <a name="instroduction"></a>
 ## Introduction
@@ -37,8 +37,10 @@ The messages and categories datasets are provided. We create an **ETL pipeline**
 
 <a name="pipeline"></a>
 ## Machine Learning Pipeline
-This Project
+A machine learning pipeline is built to process the message texts and predict the categories. 
 
-<a name="classifier"></a>
-## Message Classifier
+![mlpipeline figure](https://github.com/leizhipeng/disaster-response-pipeline/blob/main/figures/mlpipeline.png?raw=true)
+
+<a name="flask"></a>
+## Flask Web App
 This Project
