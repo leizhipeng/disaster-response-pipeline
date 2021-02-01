@@ -12,7 +12,7 @@
 
 <a name="instroduction"></a>
 ## Introduction
-This Project
+This Project aims to analyze disaster data, containing real messages that were sent during disaster events. We create a machine learning pipeline to categorize these disaster events so that the messages can be sent to an appropriate disaster relief agency.
 
 <a name="instructions"></a>
 ## Instructions:
@@ -29,7 +29,10 @@ This Project
 
 <a name="dataset"></a>
 ## Dataset
-This Project
+The messages and categories datasets are provided. We create an **ETL pipeline** to load the datasets, merge the two datasets, clean the data, and store it in a SQLite database.  
+
+![genres figure](https://github.com/leizhipeng/disaster-response-pipeline/blob/main/figures/genres.png?raw=true)
+![categories figure](https://github.com/leizhipeng/disaster-response-pipeline/blob/main/figures/categories.png?raw=true)
 
 
 <a name="pipeline"></a>
